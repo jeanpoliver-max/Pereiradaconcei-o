@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pereira da Conceição Advogados | Excelência Jurídica</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0A1A2F',
+                        darker: '#06101D',
+                        primary: '#0A1A2F',
+                        gold: '#C9A86A',
+                        gray: {
+                            light: '#F3F3F3',
+                            lead: '#2F2F2F'
+                        },
+                        green: {
+                            juridico: '#1F7A5D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
+                    },
+                    letterSpacing: {
+                        tighter: '-0.04em',
+                        tight: '-0.02em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0A1A2F;
+            color: #F3F3F3;
+            overflow-x: hidden;
+        }
+        
+        .glass {
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, rgba(47, 47, 47, 0.4) 0%, rgba(10, 26, 47, 0.2) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 168, 106, 0.1);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(201, 168, 106, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #FFFFFF, #C9A86A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Marquee */
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            gap: 2rem;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: space-around;
+            gap: 2rem;
+            min-width: 100%;
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-100% - 2rem)); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A1A2F; }
+        ::-webkit-scrollbar-thumb { background: #2F2F2F; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C9A86A; }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold selection:text-dark">
+
+    <!-- GLOBAL BACKGROUND -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <img src="https://i.imgur.com/g5zMKPM.jpg" alt="Background" class="w-full h-full object-cover opacity-30 blur-xl scale-110" />
+        <div class="absolute inset-0 bg-dark/80"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="fixed w-full top-0 z-50 glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="#" class="flex items-center">
+                <img src="https://i.imgur.com/4BvAiIQ.png" alt="PC Advogados Logo" class="h-16 w-auto object-contain" />
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-gray-300">
+                <a href="#sobre" class="hover:text-gold transition-colors">Sobre</a>
+                <a href="#atuacao" class="hover:text-gold transition-colors">Áreas de Atuação</a>
+                <a href="#diferenciais" class="hover:text-gold transition-colors">Diferenciais</a>
+                <a href="#depoimentos" class="hover:text-gold transition-colors">Depoimentos</a>
+            </nav>
+            <a href="https://wa.me/5517997440197" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-green-juridico hover:bg-opacity-90 rounded-full transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(31,122,93,0.4)]">
+                Fale Agora pelo WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://i.imgur.com/g5zMKPM.jpg" alt="Biblioteca Jurídica" class="w-full h-full object-cover opacity-20" />
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-dark/80 to-dark"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-block mb-6 px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10 backdrop-blur-sm hero-elem">
+                <span class="text-gold text-xs font-semibold tracking-widest uppercase">Escritório com mais de 40 anos de atuação</span>
+            </div>
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-semibold leading-[0.9] tracking-tighter mb-8 hero-elem">
+                Excelência Jurídica com <br/><span class="text-gradient italic font-light">Atendimento Humanizado</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed hero-elem">
+                Atuação especializada para defender seus direitos, oferecer segurança jurídica e entregar soluções de forma clara e eficiente.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 hero-elem">
+                <a href="https://wa.me/5517997440197" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 bg-green-juridico text-white rounded-full font-medium hover:bg-opacity-90 transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(31,122,93,0.3)]">
+                    Fale Agora pelo WhatsApp
+                </a>
+                <a href="https://wa.me/5517997440197" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 border border-white/20 text-white rounded-full font-medium hover:bg-white/5 transition-all">
+                    Agendar Consulta
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAIXA DE AUTORIDADE -->
+    <div class="py-12 border-y border-white/5 bg-darker">
+        <div class="marquee-container">
+            <div class="marquee-content text-gray-500 font-display italic text-2xl">
+                <span>Direito Civil</span>
+                <span>•</span>
+                <span>Direito Trabalhista</span>
+                <span>•</span>
+                <span>Direito Empresarial</span>
+                <span>•</span>
+                <span>Direito de Família</span>
+                <span>•</span>
+                <span>Direito Previdenciário</span>
+                <span>•</span>
+            </div>
+            <div class="marquee-content text-gray-500 font-display italic text-2xl" aria-hidden="true">
+                <span>Direito Civil</span>
+                <span>•</span>
+                <span>Direito Trabalhista</span>
+                <span>•</span>
+                <span>Direito Empresarial</span>
+                <span>•</span>
+                <span>Direito de Família</span>
+                <span>•</span>
+                <span>Direito Previdenciário</span>
+                <span>•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFERENCIAIS (Bento Grid) -->
+    <section id="diferenciais" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20 reveal">
+            <h2 class="font-display text-4xl md:text-5xl font-semibold mb-6">Por que escolher nosso escritório?</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Compromisso com a excelência e foco absoluto nos resultados que você precisa.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+            <div class="glass-card rounded-3xl p-8 md:col-span-2 flex flex-col justify-end relative overflow-hidden reveal">
+                <div class="absolute top-0 right-0 p-8 opacity-10">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 class="text-2xl font-display font-semibold mb-2 text-gold">Atuação Ética</h3>
+                <p class="text-gray-400">Fundamentada no Código de Ética da OAB, garantindo integridade em cada passo.</p>
+            </div>
+            <div class="glass-card rounded-3xl p-8 flex flex-col justify-end reveal">
+                <h3 class="text-2xl font-display font-semibold mb-2 text-gold">Transparência</h3>
+                <p class="text-gray-400">Clareza total em cada etapa do seu atendimento.</p>
+            </div>
+            <div class="glass-card rounded-3xl p-8 flex flex-col justify-end reveal">
+                <h3 class="text-2xl font-display font-semibold mb-2 text-gold">Estratégia</h3>
+                <p class="text-gray-400">Soluções jurídicas personalizadas para o seu caso.</p>
+            </div>
+            <div class="glass-card rounded-3xl p-8 md:col-span-2 flex flex-col justify-end relative overflow-hidden reveal">
+                <div class="absolute top-0 right-0 p-8 opacity-10">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3 class="text-2xl font-display font-semibold mb-2 text-gold">Equipe Preparada</h3>
+                <p class="text-gray-400">Profissionais altamente capacitados para demandas complexas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NÓS -->
+    <section id="sobre" class="py-32 bg-darker relative">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative h-[600px] rounded-3xl overflow-hidden reveal bg-white/5 flex items-center justify-center p-8">
+                <img src="https://i.imgur.com/4BvAiIQ.png" alt="Escritório" class="w-full h-full object-contain drop-shadow-2xl" />
+                <div class="absolute inset-0 bg-gradient-to-t from-darker via-transparent to-transparent pointer-events-none"></div>
+            </div>
+            <div class="reveal">
+                <h2 class="font-display text-4xl md:text-5xl font-semibold mb-8">Sobre o Pereira da Conceição Advogados</h2>
+                <div class="space-y-6 text-gray-400 font-light leading-relaxed">
+                    <p>O Pereira da Conceição Advogados é um escritório comprometido em oferecer soluções jurídicas completas, estratégicas e humanizadas. Atuamos com foco na proteção dos direitos dos nossos clientes, combinando experiência, estudo contínuo e excelência técnica.</p>
+                    <p>Nossa missão é proporcionar segurança jurídica e orientação clara, sempre pautados na ética, no respeito e na busca por resultados consistentes.</p>
+                </div>
+                <div class="mt-10">
+                    <a href="#contato" class="inline-flex items-center gap-2 text-gold font-medium hover:text-white transition-colors uppercase tracking-widest text-sm">
+                        Conheça Nossa História
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREAS DE ATUAÇÃO -->
+    <section id="atuacao" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20 reveal">
+            <h2 class="font-display text-4xl md:text-5xl font-semibold mb-6">Áreas de Atuação</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Especialistas prontos para defender seus interesses nas principais áreas do direito.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="glass-card p-8 rounded-3xl reveal">
+                <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-6 text-gold">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="text-xl font-display font-semibold mb-3">Direito Trabalhista</h3>
+                <p class="text-gray-400 text-sm mb-6 line-clamp-3">Atendimento especializado para trabalhadores e empresas, garantindo orientação estratégica em questões como demissões e verbas rescisórias.</p>
+                <a href="#" class="text-gold text-sm font-medium hover:text-white transition-colors">Saiba Mais &rarr;</a>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="glass-card p-8 rounded-3xl reveal">
+                <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-6 text-gold">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3"/></svg>
+                </div>
+                <h3 class="text-xl font-display font-semibold mb-3">Direito Civil</h3>
+                <p class="text-gray-400 text-sm mb-6 line-clamp-3">Atuação em contratos, responsabilidade civil, indenizações, cobranças, locações e conflitos entre particulares.</p>
+                <a href="#" class="text-gold text-sm font-medium hover:text-white transition-colors">Saiba Mais &rarr;</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-card p-8 rounded-3xl reveal">
+                <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-6 text-gold">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3 class="text-xl font-display font-semibold mb-3">Família e Sucessões</h3>
+                <p class="text-gray-400 text-sm mb-6 line-clamp-3">Atendimento sensível e humanizado em divórcios, guarda, pensão, inventários e regularização de direitos familiares.</p>
+                <a href="#" class="text-gold text-sm font-medium hover:text-white transition-colors">Saiba Mais &rarr;</a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="glass-card p-8 rounded-3xl reveal">
+                <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-6 text-gold">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3 class="text-xl font-display font-semibold mb-3">Direito Previdenciário</h3>
+                <p class="text-gray-400 text-sm mb-6 line-clamp-3">Auxílio em aposentadorias, auxílios, revisões e benefícios do INSS, com análise técnica detalhada.</p>
+                <a href="#" class="text-gold text-sm font-medium hover:text-white transition-colors">Saiba Mais &rarr;</a>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="glass-card p-8 rounded-3xl reveal">
+                <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-6 text-gold">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h3 class="text-xl font-display font-semibold mb-3">Direito Empresarial</h3>
+                <p class="text-gray-400 text-sm mb-6 line-clamp-3">Suporte completo para empresas, incluindo consultoria preventiva, elaboração de contratos e defesa em litígios.</p>
+                <a href="#" class="text-gold text-sm font-medium hover:text-white transition-colors">Saiba Mais &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="py-32 bg-darker">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h2 class="font-display text-4xl md:text-5xl font-semibold mb-6">O que dizem nossos clientes</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Avaliações reais sobre nosso atendimento e dedicação.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl reveal">
+                    <div class="flex text-gold mb-4">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"Atendimento impecável desde o primeiro contato. Me senti seguro e muito bem orientado em todas as etapas do processo."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gray-lead"></div>
+                        <div>
+                            <p class="font-medium">Carlos Silva</p>
+                            <p class="text-xs text-gray-500">Cliente - Direito Civil</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl reveal">
+                    <div class="flex text-gold mb-4">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"Profissionais extremamente éticos e transparentes. Resolveram minha questão trabalhista com muita eficiência."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gray-lead"></div>
+                        <div>
+                            <p class="font-medium">Mariana Costa</p>
+                            <p class="text-xs text-gray-500">Cliente - Trabalhista</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl reveal">
+                    <div class="flex text-gold mb-4">
+                        ★★★★★
+                    </div>
+                    <p class="text-gray-300 italic mb-6">"A consultoria empresarial prestada pelo escritório mudou a forma como gerimos nossos contratos. Recomendo fortemente."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-gray-lead"></div>
+                        <div>
+                            <p class="font-medium">Roberto Almeida</p>
+                            <p class="text-xs text-gray-500">Cliente - Empresarial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="contato" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://i.imgur.com/g5zMKPM.jpg" alt="Contato" class="w-full h-full object-cover opacity-10" />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/90 to-dark"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center reveal">
+            <h2 class="font-display text-5xl md:text-6xl font-semibold mb-6">Precisa de orientação jurídica confiável?</h2>
+            <p class="text-xl text-gray-400 mb-12 font-light">Estamos prontos para ajudar você. Entre em contato para atendimento rápido e personalizado.</p>
+            <a href="https://wa.me/5517997440197" target="_blank" rel="noopener noreferrer" class="inline-flex px-10 py-5 bg-green-juridico text-white rounded-full font-medium text-lg hover:bg-opacity-90 transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(31,122,93,0.4)]">
+                Fale com um Advogado Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-darker pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-2">
+                <div class="mb-6">
+                    <img src="https://i.imgur.com/4BvAiIQ.png" alt="PC Advogados Logo" class="w-[113px] h-[113px] object-contain" />
+                </div>
+                <p class="text-gray-500 max-w-sm">Excelência jurídica com atendimento humanizado. Protegendo seus direitos com ética e transparência.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-6 text-white">Menu Rápido</h4>
+                <ul class="space-y-4 text-gray-500 text-sm">
+                    <li><a href="#sobre" class="hover:text-gold transition-colors">Sobre Nós</a></li>
+                    <li><a href="#atuacao" class="hover:text-gold transition-colors">Áreas de Atuação</a></li>
+                    <li><a href="#diferenciais" class="hover:text-gold transition-colors">Diferenciais</a></li>
+                    <li><a href="#contato" class="hover:text-gold transition-colors">Contato</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-6 text-white">Contato</h4>
+                <ul class="space-y-4 text-gray-500 text-sm">
+                    <li>Seg - Sex: 09:00 às 18:00</li>
+                    <li>contato@pcadvogados.com.br</li>
+                    <li>(17) 99744-0197</li>
+                    <li>Av. Paulista, 1000 - São Paulo, SP</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-xs text-gray-600">
+            <p>&copy; 2026 Pereira da Conceição Advogados. Todos os direitos reservados.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-gray-400">Política de Privacidade</a>
+                <a href="#" class="hover:text-gray-400">Termos de Uso</a>
+                <a href="#" class="hover:text-gray-400">LGPD</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/5517997440197" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.662-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- GSAP Animations -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        gsap.from(".hero-elem", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out",
+            delay: 0.2
+        });
+
+        // Scroll Reveal
+        gsap.utils.toArray('.reveal').forEach(elem => {
+            gsap.from(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%",
+                },
+                y: 40,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+    </script>
+</body>
+</html>
